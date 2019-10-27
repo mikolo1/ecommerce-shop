@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title th:text="#{page.main.title}">Main Page</title>
     <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 <h1 th:text="#{page.main.title}">Main Page</h1>
 
 <div class="langdiv">
-    <form method="get" action="?">
+    <form method="get" action="?" id="addLocationForm">
         <div class="form-group">
             <label for="language" th:text="#{language.choose}">Choose Language</label>
             <select class="form-control" id="language" name="lang">
