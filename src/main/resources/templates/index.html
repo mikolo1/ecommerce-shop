@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <title th:text="#{page.main.title}">Main Page</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <h1 th:text="#{page.main.title}">Main Page</h1>
@@ -12,15 +13,18 @@
         <div class="form-group">
             <label for="language" th:text="#{language.choose}">Choose Language</label>
             <select class="form-control" id="language" name="lang">
-                <option value="en_EN" th:selected="${'en_EN' == ${#locale}}">ANGIELSKI</option>
-                <option value="pl_PL" th:selected="${'pl_PL' == ${#locale}}">POLSKI</option>
-                <option value="de_DE" th:selected="${'de_DE' == ${#locale}}">NIEMIECKI</option>
+                <option th:text="#{language.english}" value="en_EN" th:selected="__${#locale}__ == 'en_EN'">ANGIELSKI</option>
+                <option th:text="#{language.polish}" value="pl_PL" th:selected="__${#locale}__ == 'pl_PL'">POLSKI</option>
+                <option th:text="#{language.german}" value="de_DE" th:selected="__${#locale}__ == 'de_DE'" >NIEMIECKI</option>
             </select>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-outline-primary" value="Wybierz język">
+            <input th:value="#{language.choose}" type="submit" class="btn btn-outline-primary" value="Wybierz język" >
         </div>
     </form>
 </div>
+<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="webjars/popper.js/1.14.6/dist/umd/popper.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
