@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{page.main.title}">Main Page</title>
+    <title th:text="#{page.main}">Main Page</title>
     <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="../assets/css/main.css" th:href="@{/assets/css/main.css}" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -34,12 +34,12 @@
             <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="hasło:">
         </div>
         <div class="buttons">
-            <div class="buttonrow">
+            <div class="buttonleft">
                 <button type="submit" class="btn btn-success">Zarejestruj</button>
             </div>
-            <div class="buttonrow">
+            <div class="buttonright">
                 <button type="button" class="btn btn-primary"
-                        onclick="window.location.href='${pageContext.request.contextPath}/index'">Zrezygnuj
+                        onclick="window.location.href='/index'">Zrezygnuj
                 </button>
             </div>
         </div>

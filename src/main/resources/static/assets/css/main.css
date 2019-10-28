@@ -6,6 +6,10 @@ body {
     margin-top: auto;
 }
 
+header{
+    margin-bottom: 20px;
+}
+
 h1 {
     font-size: 36px;
     font-weight: 400;
@@ -43,11 +47,14 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 }
-.buttonrow{
+.buttonleft{
     float: left;
     width: 50%;
+    text-align: left;
 }
 
-.buttons{
-    text-align: center;
+.buttonright{
+    float: left;
+    width: 50%;
+    text-align: right;
 }
