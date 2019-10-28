@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Component
@@ -27,5 +29,11 @@ public class UserUtilities {
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRoles(Collections.singleton(role));
         return user;
+    }
+
+    public static boolean validateEmailOrPassword(String pattern, String data) {
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(data);
+        return m.matches();
     }
 }

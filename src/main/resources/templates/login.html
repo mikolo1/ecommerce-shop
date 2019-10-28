@@ -12,34 +12,22 @@
 <div th:replace="fragments::header"></div>
 
 <div class="formedit" style="width: 300px">
-    <form method="post" th:action="@{/register}" th:object="${newUser}">
+    <form method="post" action="/login">
         <div class="form-group">
-            <label for="name">First Name:</label>
-            <input type="text" class="form-control" id="name" th:field="*{firstName}" placeholder="imię:" autofocus = "autofocus">
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="nazwisko:">
-        </div>
-        <div class="form-group">
-            <label for="login">email:</label>
-            <input type="email" class="form-control" id="login" th:field="*{email}" placeholder="email:">
-        </div>
-        <div class="form-group">
-            <label for="city">city:</label>
-            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="city:">
+            <label for="email">Login (email):</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email:" autofocus = "autofocus">
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="hasło:">
+            <input type="password" class="form-control" id="password" name="password" placeholder="hasło:">
         </div>
         <div class="buttons">
             <div class="buttonleft">
-                <button type="submit" class="btn btn-success">Zarejestruj</button>
+                <button type="submit" class="btn btn-success">Log in</button>
             </div>
             <div class="buttonright">
                 <button type="button" class="btn btn-primary"
-                        onclick="window.location.href='/index'">Zrezygnuj
+                        onclick="window.location.href='/index'">Cancel
                 </button>
             </div>
         </div>

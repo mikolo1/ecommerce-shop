@@ -3,7 +3,6 @@ package mikolo.ecommerceshop.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,17 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .failureUrl("/login?error=true")
                 .defaultSuccessUrl("/")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .and().logout()
+                .logoutSuccessUrl("/")
                 .and().exceptionHandling().accessDeniedPage("/denied")
                 .and()
                 .httpBasic();
-
-
     }
-
-//    public void configure(WebSecurity ws) {
-//        ws.ignoring()
-//                .antMatchers("/resources/**", "/static/**", "/assets/**", "/css/**", "/js/**", "/images/**", "/incl/**");
-//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

@@ -15,7 +15,6 @@ public class UserDto {
     private String firstName;
 
     @NotBlank
-    @Min(4)
     @Max(255)
     private String lastName;
 

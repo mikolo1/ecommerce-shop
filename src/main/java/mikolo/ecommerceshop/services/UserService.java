@@ -18,4 +18,8 @@ public class UserService {
         User user = userUtilities.userDtoToUserEntityConverter(userDto);
         return userRepository.save(user);
     }
+
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
 }
