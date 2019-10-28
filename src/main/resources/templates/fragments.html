@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+</head>
+<body>
+<div th:fragment="header">
+    <header>
+        <nav class="nav navbar navbar-dark bg-jumpers navbar-expand-lg sticky-top">
+            <div class="container">
+
+                <a class="navbar-brand" href="#"><img src="../static/assets/images/logo.png" th:src="@{/assets/images/logo.png}" class="d-inline-block mr-1 align-bottom" width="90" height="30"
+                                                      alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" name="button"
+                        aria-controls="#mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainmenu">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" th:text="#{link.aboutus}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false"
+                               id="submenu" aria-haspopup="true" th:text="#{link.categories}">Categories</a>
+                            <div class="dropdown-menu" aria-labelledby="#submenu">
+
+                                <a href="#" class="dropdown-item" th:text="#{category.one}">Category 1</a>
+                                <a href="#" class="dropdown-item" th:text="#{category.two}">Category 2</a>
+                                <a href="#" class="dropdown-item" th:text="#{category.three}">Category 3</a>
+                                <a href="#" class="dropdown-item" th:text="#{category.four}">Category 4</a>
+
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" th:text="#{link.settings}">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/register}" class="nav-link" th:text="#{link.register}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" th:text="#{link.login}">Log in</a>
+                        </li>
+
+                    </ul>
+
+                    <form class="form-inline" action="?" method="post">
+                        <input class="form-control mr-1" type="search" placeholder="wyszukaj" th:placeholder="#{placeholder.search}" aria-label="wyszukaj">
+                        <button class="btn btn-light" type="submit" name="search" value="find" th:text="#{button.find}">Find</button>
+                        <!-- <button class = "btn btn-light" type="submit" value="Submit"> </button> -->
+                    </form>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+</body>
+</html>

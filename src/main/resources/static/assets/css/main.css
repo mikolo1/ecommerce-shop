@@ -1,0 +1,53 @@
+body {
+    background-color: #2F3336;
+    color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    margin-top: auto;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #C0D06F;
+    margin: 20px;
+}
+
+.jumpers {
+    text-align: center;
+}
+
+.jumpers img {
+    width: 100%;
+    height: auto;
+}
+
+.jumpers p {
+    margin-bottom: 30px;
+}
+
+.jumpers figcaption {
+    margin-top: 8px;
+}
+
+.navbar {
+    min-height: 58px;
+}
+
+.bg-jumpers {
+    background-color: #3a54c2 !important;
+}
+
+.formedit{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.buttonrow{
+    float: left;
+    width: 50%;
+}
+
+.buttons{
+    text-align: center;
+}

@@ -9,19 +9,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @RequiredArgsConstructor
 @Service
 public class AppUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
+    @Transactional
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        mikolo.ecommerceshop.entity.User userByEmail = userRepository.findUserByEmail(s).orElseThrow(()-> new UsernameNotFoundException("User with email " + s + "not found."));
-//        String rolesString = userByEmail.getRoles().stream().map(Role::getRole).collect(Collectors.joining(","));
-//        String[] roles = rolesString.split(",");
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        mikolo.ecommerceshop.entity.User userByEmail = userRepository.findUserByEmail(username).orElseThrow(()-> new UsernameNotFoundException("User with email " + username + "not found."));
         String[] roles = userByEmail.getRoles().stream().map(Role::getRole).toArray(String[]::new);
-        UserDetails user = User.withUsername(userByEmail.getEmail()).password(userByEmail.getPassword()).roles(roles).build();
-        return user;
+        return User.withUsername(userByEmail.getEmail()).password(userByEmail.getPassword()).roles(roles).build();
     }
 }
