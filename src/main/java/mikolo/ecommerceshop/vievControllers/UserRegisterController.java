@@ -23,24 +23,21 @@ public class UserRegisterController {
     private final RegisterValidator registerValidator;
 
     @GetMapping("/register")
-    public String showRegisterPage(Model model){
+    public String showRegisterPage(Model model) {
         model.addAttribute("newUser", new UserDto());
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute UserDto userDto, BindingResult result, Model model, Locale locale){
-        String returnPage = "/";
+    public String registerUser(@Valid @ModelAttribute("newUser") UserDto userDto, BindingResult result, Model model, Locale locale) {
         User existing = userService.findByEmail(userDto.getEmail());
         registerValidator.validateEmailExist(existing, result);
+        registerValidator.validate(userDto, result);
 
-        if(result.hasErrors()){
-            returnPage = "register";
-        } else {
-            userService.create(userDto);
-            returnPage = "index";
+        if (result.hasErrors()) {
+            return "register";
         }
         userService.create(userDto);
-        return returnPage;
+        return "index";
     }
 }
