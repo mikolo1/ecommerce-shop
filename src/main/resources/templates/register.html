@@ -11,39 +11,39 @@
 <body>
 <div th:replace="fragments::header"></div>
 
-<div class="formedit" style="width: 300px">
+<div class="formedit" style="width: 400px">
     <form method="post" th:action="@{/register}" th:object="${newUser}">
         <div class="form-group">
-            <label for="name">First Name:</label>
-            <input type="text" class="form-control" id="name" th:field="*{firstName}" placeholder="imię:" autofocus = "autofocus">
+            <label for="name" th:text="#{form.firstName}">First Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{firstName}" placeholder="imię:" th:placeholder="#{form.firstName}" autofocus = "autofocus">
             <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
         </div>
         <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="nazwisko:">
+            <label for="lastName" th:text="#{form.lastName}">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="nazwisko:" th:placeholder="#{form.lastName}">
             <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
         </div>
         <div class="form-group">
-            <label for="login">email:</label>
-            <input type="text" class="form-control" id="login" th:field="*{email}" placeholder="email:">
+            <label for="login" th:text="#{placeholder.email}">email:</label>
+            <input type="text" class="form-control" id="login" th:field="*{email}" placeholder="email:" th:placeholder="#{form.email}">
             <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         </div>
         <div class="form-group">
-            <label for="city">city:</label>
-            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="city:">
+            <label for="city" th:text="#{form.city}">city:</label>
+            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="city:" th:placeholder="#{form.city}">
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="hasło:">
+            <label for="password" th:text="#{form.password}">Password:</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="hasło:" th:placeholder="#{placeholder.password}">
             <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
         </div>
         <div class="buttons">
             <div class="buttonleft">
-                <button type="submit" class="btn btn-success">Zarejestruj</button>
+                <button type="submit" class="btn btn-success" th:text="#{button.register}">Zarejestruj</button>
             </div>
             <div class="buttonright">
                 <button type="button" class="btn btn-primary"
-                        onclick="window.location.href='/index'">Zrezygnuj
+                        onclick="window.location.href='/index'" th:text="#{button.cancel}">Zrezygnuj
                 </button>
             </div>
         </div>
