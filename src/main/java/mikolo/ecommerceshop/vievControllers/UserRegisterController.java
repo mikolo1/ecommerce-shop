@@ -35,7 +35,7 @@ public class UserRegisterController {
         registerValidator.validateEmailExist(existing, result);
 
         if(result.hasErrors()){
-            returnPage = "index";
+            returnPage = "register";
         } else {
             userService.create(userDto);
             returnPage = "index";

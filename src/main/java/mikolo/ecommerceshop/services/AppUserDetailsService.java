@@ -20,8 +20,8 @@ public class AppUserDetailsService implements UserDetailsService {
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        mikolo.ecommerceshop.entity.User userByEmail = userRepository.findUserByEmail(username).orElseThrow(()-> new UsernameNotFoundException("User with email " + username + "not found."));
-        String[] roles = userByEmail.getRoles().stream().map(Role::getRole).toArray(String[]::new);
-        return User.withUsername(userByEmail.getEmail()).password(userByEmail.getPassword()).roles(roles).build();
+        mikolo.ecommerceshop.entity.User userEntity = userRepository.findUserByEmail(username).orElseThrow(()-> new UsernameNotFoundException("User with email " + username + "not found."));
+        String[] roles = userEntity.getRoles().stream().map(Role::getRole).toArray(String[]::new);
+        return User.withUsername(userEntity.getEmail()).password(userEntity.getPassword()).roles(roles).build();
     }
 }

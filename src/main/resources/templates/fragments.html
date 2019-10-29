@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Fragments</title>
@@ -10,9 +10,12 @@
         <nav class="nav navbar navbar-dark bg-jumpers navbar-expand-lg sticky-top">
             <div class="container">
 
-                <a class="navbar-brand" href="#"><img src="../static/assets/images/logo.png" th:src="@{/assets/images/logo.png}" class="d-inline-block mr-1 align-bottom" width="90" height="30"
+                <a class="navbar-brand" href="#"><img src="../static/assets/images/logo.png"
+                                                      th:src="@{/assets/images/logo.png}"
+                                                      class="d-inline-block mr-1 align-bottom" width="90" height="30"
                                                       alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" name="button"
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu"
+                        name="button"
                         aria-controls="#mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -22,10 +25,11 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                            <a th:href="@{/index}"  class="nav-link" th:text="#{page.main}">Main Page</a>
+                            <a th:href="@{/index}" class="nav-link" th:text="#{page.main}">Main Page</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false"
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"
                                id="submenu" aria-haspopup="true" th:text="#{link.categories}">Categories</a>
                             <div class="dropdown-menu" aria-labelledby="#submenu">
 
@@ -40,18 +44,23 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link" th:text="#{link.settings}">Settings</a>
                         </li>
-                        <li class="nav-item">
+                        <li sec:authorize="!isAuthenticated()" class="nav-item">
                             <a th:href="@{/register}" class="nav-link" th:text="#{link.register}">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a th:href="@{/login}" class="nav-link" th:text="#{link.login}">Log in</a>
-                        </li>
-
+                            <li sec:authorize="!isAuthenticated()" class="nav-item">
+                                <a th:href="@{/login}" class="nav-link" th:text="#{link.login}">Log in</a>
+                            </li>
+                            <li sec:authorize="isAuthenticated()" class="nav-item">
+                                <a th:href="@{/logout}" class="nav-link" th:text="#{link.logout}">Log in</a>
+                            </li>
                     </ul>
 
                     <form class="form-inline" action="?" method="post">
-                        <input class="form-control mr-1" type="search" placeholder="wyszukaj" th:placeholder="#{placeholder.search}" aria-label="wyszukaj">
-                        <button class="btn btn-light" type="submit" name="search" value="find" th:text="#{button.find}">Find</button>
+                        <input class="form-control mr-1" type="search" placeholder="wyszukaj"
+                               th:placeholder="#{placeholder.search}" aria-label="wyszukaj">
+                        <button class="btn btn-light" type="submit" name="search" value="find" th:text="#{button.find}">
+                            Find
+                        </button>
                         <!-- <button class = "btn btn-light" type="submit" value="Submit"> </button> -->
                     </form>
 
