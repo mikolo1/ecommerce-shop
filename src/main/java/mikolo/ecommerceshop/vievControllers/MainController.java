@@ -15,4 +15,9 @@ public class MainController {
     public String showLoginPage() {
         return "login";
     }
+
+    @GetMapping(value = "/denied")
+    public String showAccesDenidedPage() {
+        return "denied";
+    }
 }
