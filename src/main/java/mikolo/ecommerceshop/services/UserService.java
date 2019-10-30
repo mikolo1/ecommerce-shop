@@ -7,6 +7,8 @@ import mikolo.ecommerceshop.repositories.UserRepository;
 import mikolo.ecommerceshop.utils.MainUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -19,7 +21,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public Optional<User> findByEmail(String email){
+        return userRepository.findUserByEmail(email);
     }
 }

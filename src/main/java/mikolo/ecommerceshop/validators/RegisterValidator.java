@@ -11,6 +11,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import java.util.Optional;
+
 @Service
 public class RegisterValidator implements Validator {
 
@@ -45,8 +47,8 @@ public class RegisterValidator implements Validator {
         }
     }
 
-    public void validateEmailExist(User user, Errors errors) {
-        if (user != null) {
+    public void validateEmailExist(Optional<User> user, Errors errors) {
+        if (user.isPresent()) {
             errors.rejectValue("email", "error.userEmailExist");
         }
     }

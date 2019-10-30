@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.Locale;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -30,7 +31,7 @@ public class UserRegisterController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("newUser") UserDto userDto, BindingResult result, Model model, Locale locale) {
-        User existing = userService.findByEmail(userDto.getEmail());
+        Optional<User> existing = userService.findByEmail(userDto.getEmail());
         registerValidator.validateEmailExist(existing, result);
         registerValidator.validate(userDto, result);
 

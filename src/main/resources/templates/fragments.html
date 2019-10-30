@@ -62,10 +62,10 @@
                             <a th:href="@{/login}" class="nav-link" th:text="#{link.login}">Log in</a>
                         </li>
                         <li sec:authorize="hasRole('ADMIN')" class="nav-item">
-                            <a th:href="@{/admin}" class="nav-link" th:text="#{link.admin}">Log in</a>
+                            <a th:href="@{/admin}" class="nav-link" th:text="#{link.admin}">Admin zone</a>
                         </li>
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a th:href="@{/logout}" class="nav-link" th:text="#{link.logout}">Log in</a>
+                            <a th:href="@{/logout}" class="nav-link" th:text="#{link.logout}">Log out</a>
                         </li>
                         <li sec:authorize="isAuthenticated()" class="nav-item">
                             <div class="nav-link" th:text="#{hello.user}+${@userUtils.getUserByUserName().firstName}+'!'">Log in</div>

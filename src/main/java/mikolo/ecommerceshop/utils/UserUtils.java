@@ -7,6 +7,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityNotFoundException;
+
 @RequiredArgsConstructor
 @Component
 public class UserUtils {
@@ -15,12 +17,11 @@ public class UserUtils {
 
     public String loggedUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = ((UserDetails)principal).getUsername();
-        return username;
+        return ((UserDetails)principal).getUsername();
     }
 
     public User getUserByUserName() {
         String userName = loggedUser();
-        return userService.findByEmail(userName);
+        return userService.findByEmail(userName).orElseThrow(EntityNotFoundException::new);
     }
 }
