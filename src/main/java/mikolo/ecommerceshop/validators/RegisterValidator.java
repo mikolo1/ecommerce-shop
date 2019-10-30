@@ -4,7 +4,7 @@ package mikolo.ecommerceshop.validators;
 import mikolo.ecommerceshop.dto.UserDto;
 import mikolo.ecommerceshop.entity.User;
 import mikolo.ecommerceshop.utils.Consts;
-import mikolo.ecommerceshop.utils.UserUtilities;
+import mikolo.ecommerceshop.utils.MainUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
@@ -27,7 +27,7 @@ public class RegisterValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "error.userLastName.empty");
 
         if (StringUtils.isNotBlank(user.getEmail())) {
-            boolean match = UserUtilities.validateEmailOrPassword(Consts.EMAIL_PATTERN, user.getEmail());
+            boolean match = MainUtils.validateEmailOrPassword(Consts.EMAIL_PATTERN, user.getEmail());
             if (!match) {
                 errors.rejectValue("email", "error.userEmailIsNotMatch");
             }
@@ -36,7 +36,7 @@ public class RegisterValidator implements Validator {
         }
 
         if (StringUtils.isNotBlank(user.getPassword())) {
-            boolean match = UserUtilities.validateEmailOrPassword(Consts.PASSWORD_PATTERN, user.getPassword());
+            boolean match = MainUtils.validateEmailOrPassword(Consts.PASSWORD_PATTERN, user.getPassword());
             if(!match){
                 errors.rejectValue("password", "error.userPasswordIsNotMatch");
             }

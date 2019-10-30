@@ -4,14 +4,14 @@ import lombok.RequiredArgsConstructor;
 import mikolo.ecommerceshop.dto.UserDto;
 import mikolo.ecommerceshop.entity.User;
 import mikolo.ecommerceshop.repositories.UserRepository;
-import mikolo.ecommerceshop.utils.UserUtilities;
+import mikolo.ecommerceshop.utils.MainUtils;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
 public class UserService {
 
-    private final UserUtilities userUtilities;
+    private final MainUtils userUtilities;
     private final UserRepository userRepository;
 
     public User create(UserDto userDto) {

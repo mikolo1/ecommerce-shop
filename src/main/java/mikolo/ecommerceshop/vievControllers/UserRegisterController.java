@@ -29,7 +29,7 @@ public class UserRegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute("newUser") UserDto userDto, BindingResult result, Model model, Locale locale) {
+    public String registerUser(@ModelAttribute("newUser") UserDto userDto, BindingResult result, Model model, Locale locale) {
         User existing = userService.findByEmail(userDto.getEmail());
         registerValidator.validateEmailExist(existing, result);
         registerValidator.validate(userDto, result);

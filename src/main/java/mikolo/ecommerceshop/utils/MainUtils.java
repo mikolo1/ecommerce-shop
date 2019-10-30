@@ -14,10 +14,11 @@ import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Component
-public class UserUtilities {
+public class MainUtils {
 
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+
 
     public User userDtoToUserEntityConverter(UserDto userDto){
         User user = new User();
