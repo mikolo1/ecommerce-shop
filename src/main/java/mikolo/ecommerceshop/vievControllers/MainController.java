@@ -17,7 +17,7 @@ public class MainController {
     }
 
     @GetMapping(value = "/denied")
-    public String showAccesDeniedPage() {
+    public String showAccessDeniedPage() {
         return "denied";
     }
 }
