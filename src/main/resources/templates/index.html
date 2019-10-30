@@ -11,21 +11,9 @@
 <body>
 <div th:replace="fragments::header"></div>
 
-<div class="langdiv">
-    <form method="get" action="?" id="addLocationForm">
-        <div class="form-group">
-            <label for="language" th:text="#{language.choose}">Choose Language</label>
-            <select class="form-control" id="language" name="lang">
-                <option th:text="#{language.english}" value="en_EN" th:selected="__${#locale}__ == 'en_EN'">ANGIELSKI</option>
-                <option th:text="#{language.polish}" value="pl_PL" th:selected="__${#locale}__ == 'pl_PL'">POLSKI</option>
-                <option th:text="#{language.german}" value="de_DE" th:selected="__${#locale}__ == 'de_DE'" >NIEMIECKI</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <input th:value="#{language.choose}" type="submit" class="btn btn-outline-primary" value="Wybierz język" >
-        </div>
-    </form>
-</div>
+<h1 align="center">
+    The page is under construction. We are working really hard...
+</h1>
 <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
 <script src="webjars/popper.js/1.14.6/dist/umd/popper.min.js"></script>
 <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
