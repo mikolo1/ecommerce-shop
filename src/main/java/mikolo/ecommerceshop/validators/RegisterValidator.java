@@ -29,7 +29,7 @@ public class RegisterValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.lastName", "error.userLastName.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "city", "error.userCity.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "country", "error.userCountry.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "street", "error.userStreet.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "streetAndPropertyNumber", "error.userStreet.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "zipCode", "error.userZipCode.empty");
 
         if (StringUtils.isNotBlank(addressDto.getUser().getEmail())) {

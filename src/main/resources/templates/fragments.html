@@ -46,11 +46,10 @@
                                aria-expanded="false"
                                id="settings" aria-haspopup="true" th:text="#{language.menu}">Language</a>
                             <div class="dropdown-menu" aria-labelledby="#settings">
-                                    <a href="?lang=en_EN" th:href="@{/(lang=en_EN)}" class="dropdown-item" th:text="#{language.english}">English</a>
-                                    <a href="?lang=de_DE" th:href="@{/(lang=de_DE)}" class="dropdown-item" th:text="#{language.german}">Deutsch</a>
-                                    <a href="?lang=pl_PL" th:href="@{/(lang=pl_PL)}" class="dropdown-item" th:text="#{language.polish}">Polski</a>
+                                    <a href="?lang=en_EN" th:href="@{''(lang=en_EN)}" class="dropdown-item" th:text="#{language.english}">English</a>
+                                    <a href="?lang=de_DE" th:href="@{''(lang=de_DE)}" class="dropdown-item" th:text="#{language.german}">Deutsch</a>
+                                    <a href="?lang=pl_PL" th:href="@{''(lang=pl_PL)}" class="dropdown-item" th:text="#{language.polish}">Polski</a>
                             </div>
-
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" th:text="#{link.settings}">Settings</a>

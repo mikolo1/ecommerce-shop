@@ -1,6 +1,7 @@
 package mikolo.ecommerceshop.dto;
 
 import lombok.Data;
+import mikolo.ecommerceshop.entity.IncomingMessagesPreferences;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -15,6 +16,8 @@ public class UserDto {
     private String lastName;
 
     private String email;
+
+    private IncomingMessagesPreferences incomingMessagesPreferences;
 
     private String password;
 }

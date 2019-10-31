@@ -3,7 +3,6 @@ package mikolo.ecommerceshop.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -20,7 +19,7 @@ public class Address {
     private String city;
 
     @Column(nullable = false)
-    private String street;
+    private String streetAndPropertyNumber;
 
     @Column(nullable = false)
     private String zipCode;

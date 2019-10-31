@@ -6,6 +6,7 @@ import mikolo.ecommerceshop.entity.User;
 import mikolo.ecommerceshop.services.AddressService;
 import mikolo.ecommerceshop.services.UserService;
 import mikolo.ecommerceshop.validators.RegisterValidator;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +24,7 @@ public class UserRegisterController {
     private final UserService userService;
     private final RegisterValidator registerValidator;
     private final AddressService addressService;
+    private final MessageSource messageSource;
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
@@ -40,6 +42,7 @@ public class UserRegisterController {
             return "register";
         }
         addressService.create(addressDto);
+        model.addAttribute("messageinfo", messageSource.getMessage("register.success", null, locale));
         return "index";
     }
 }

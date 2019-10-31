@@ -24,6 +24,10 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private IncomingMessagesPreferences incomingMessagesPreferences;
+
+    @Column(nullable = false)
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)

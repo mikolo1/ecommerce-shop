@@ -3,36 +3,25 @@ body {
     color: #efefef;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
-    margin-top: auto;
-    margin-bottom: 20px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
-header{
-    margin-bottom: 20px;
+.navbar {
+    overflow: visible;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 h1 {
     font-size: 36px;
     font-weight: 400;
     color: #C0D06F;
-    margin: 20px;
 }
 
-.jumpers {
-    text-align: center;
-}
-
-.jumpers img {
-    width: 100%;
-    height: auto;
-}
-
-.jumpers p {
-    margin-bottom: 30px;
-}
-
-.jumpers figcaption {
-    margin-top: 8px;
+.container{
+    max-width: 1300px;
 }
 
 .navbar {

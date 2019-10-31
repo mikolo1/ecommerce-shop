@@ -25,7 +25,7 @@ public class MainUtils {
         Address address = new Address();
         address.setCity(addressDto.getCity());
         address.setCountry(addressDto.getCountry());
-        address.setStreet(addressDto.getStreet());
+        address.setStreetAndPropertyNumber(addressDto.getStreetAndPropertyNumber());
         address.setZipCode(addressDto.getZipCode());
         address.setUser(userDtoToUserEntityConverter(addressDto.getUser()));
         return address;
@@ -34,10 +34,10 @@ public class MainUtils {
     public User userDtoToUserEntityConverter(UserDto userDto) {
         User user = new User();
         Role role = roleRepository.findByRole("USER");
-//        user.setCity(userDto.getCity());
         user.setEmail(userDto.getEmail());
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
+        user.setIncomingMessagesPreferences(userDto.getIncomingMessagesPreferences());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRoles(Collections.singleton(role));
         return user;
