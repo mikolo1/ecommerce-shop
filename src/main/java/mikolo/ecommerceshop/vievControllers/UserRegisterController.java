@@ -1,8 +1,9 @@
 package mikolo.ecommerceshop.vievControllers;
 
 import lombok.RequiredArgsConstructor;
-import mikolo.ecommerceshop.dto.UserDto;
+import mikolo.ecommerceshop.dto.AddressDto;
 import mikolo.ecommerceshop.entity.User;
+import mikolo.ecommerceshop.services.AddressService;
 import mikolo.ecommerceshop.services.UserService;
 import mikolo.ecommerceshop.validators.RegisterValidator;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -22,23 +22,24 @@ public class UserRegisterController {
 
     private final UserService userService;
     private final RegisterValidator registerValidator;
+    private final AddressService addressService;
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
-        model.addAttribute("newUser", new UserDto());
+        model.addAttribute("newUser", new AddressDto());
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("newUser") UserDto userDto, BindingResult result, Model model, Locale locale) {
-        Optional<User> existing = userService.findByEmail(userDto.getEmail());
+    public String registerUser(@ModelAttribute("newUser") AddressDto addressDto, BindingResult result, Model model, Locale locale) {
+        Optional<User> existing = userService.findByEmail(addressDto.getUser().getEmail());
         registerValidator.validateEmailExist(existing, result);
-        registerValidator.validate(userDto, result);
+        registerValidator.validate(addressDto, result);
 
         if (result.hasErrors()) {
             return "register";
         }
-        userService.create(userDto);
+        addressService.create(addressDto);
         return "index";
     }
 }

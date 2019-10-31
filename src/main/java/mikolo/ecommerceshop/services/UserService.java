@@ -13,11 +13,11 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private final MainUtils userUtilities;
+    private final MainUtils mainUtils;
     private final UserRepository userRepository;
 
     public User create(UserDto userDto) {
-        User user = userUtilities.userDtoToUserEntityConverter(userDto);
+        User user = mainUtils.userDtoToUserEntityConverter(userDto);
         return userRepository.save(user);
     }
 

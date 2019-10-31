@@ -1,7 +1,9 @@
 package mikolo.ecommerceshop.utils;
 
 import lombok.RequiredArgsConstructor;
+import mikolo.ecommerceshop.dto.AddressDto;
 import mikolo.ecommerceshop.dto.UserDto;
+import mikolo.ecommerceshop.entity.Address;
 import mikolo.ecommerceshop.entity.Role;
 import mikolo.ecommerceshop.entity.User;
 import mikolo.ecommerceshop.repositories.RoleRepository;
@@ -19,11 +21,20 @@ public class MainUtils {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
 
+    public Address addressDtoToAddressEntityConverter(AddressDto addressDto) {
+        Address address = new Address();
+        address.setCity(addressDto.getCity());
+        address.setCountry(addressDto.getCountry());
+        address.setStreet(addressDto.getStreet());
+        address.setZipCode(addressDto.getZipCode());
+        address.setUser(userDtoToUserEntityConverter(addressDto.getUser()));
+        return address;
+    }
 
-    public User userDtoToUserEntityConverter(UserDto userDto){
+    public User userDtoToUserEntityConverter(UserDto userDto) {
         User user = new User();
         Role role = roleRepository.findByRole("USER");
-        user.setCity(userDto.getCity());
+//        user.setCity(userDto.getCity());
         user.setEmail(userDto.getEmail());
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());

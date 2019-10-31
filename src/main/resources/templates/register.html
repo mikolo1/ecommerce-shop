@@ -15,27 +15,43 @@
     <form method="post" th:action="@{/register}" th:object="${newUser}">
         <div class="form-group">
             <label for="name" th:text="#{form.firstName}">First Name:</label>
-            <input type="text" class="form-control" id="name" th:field="*{firstName}" placeholder="imię:" th:placeholder="#{form.firstName}" autofocus = "autofocus">
-            <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+            <input type="text" class="form-control" id="name" th:field="*{user.firstName}" placeholder="imię:" th:placeholder="#{form.firstName}" autofocus = "autofocus">
+            <span class="error" th:if="${#fields.hasErrors('user.firstName')}" th:errors="*{user.firstName}"></span>
         </div>
         <div class="form-group">
             <label for="lastName" th:text="#{form.lastName}">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="nazwisko:" th:placeholder="#{form.lastName}">
-            <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+            <input type="text" class="form-control" id="lastName" th:field="*{user.lastName}" placeholder="nazwisko:" th:placeholder="#{form.lastName}">
+            <span class="error" th:if="${#fields.hasErrors('user.lastName')}" th:errors="*{user.lastName}"></span>
         </div>
         <div class="form-group">
             <label for="login" th:text="#{placeholder.email}">email:</label>
-            <input type="text" class="form-control" id="login" th:field="*{email}" placeholder="email:" th:placeholder="#{form.email}">
-            <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <input type="text" class="form-control" id="login" th:field="*{user.email}" placeholder="email:" th:placeholder="#{form.email}">
+            <span class="error" th:if="${#fields.hasErrors('user.email')}" th:errors="*{user.email}"></span>
+        </div>
+        <div class="form-group">
+            <label for="country" th:text="#{form.country}">city:</label>
+            <input type="text" class="form-control" id="country" th:field="*{country}" placeholder="country:" th:placeholder="#{form.country}">
+            <span class="error" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></span>
         </div>
         <div class="form-group">
             <label for="city" th:text="#{form.city}">city:</label>
             <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="city:" th:placeholder="#{form.city}">
+            <span class="error" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+        </div>
+        <div class="form-group">
+            <label for="street" th:text="#{form.street}">city:</label>
+            <input type="text" class="form-control" id="street" th:field="*{street}" placeholder="street:" th:placeholder="#{form.street}">
+            <span class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
+        </div>
+        <div class="form-group">
+            <label for="zipCode" th:text="#{form.zipCode}">city:</label>
+            <input type="text" class="form-control" id="zipCode" th:field="*{zipCode}" placeholder="ZIP Code:" th:placeholder="#{form.zipCode}">
+            <span class="error" th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}"></span>
         </div>
         <div class="form-group">
             <label for="password" th:text="#{form.password}">Password:</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="hasło:" th:placeholder="#{placeholder.password}">
-            <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            <input type="password" class="form-control" id="password" th:field="*{user.password}"  autocomplete="off" placeholder="password:" th:placeholder="#{placeholder.password}">
+            <span class="error" th:if="${#fields.hasErrors('user.password')}" th:errors="*{user.password}"></span>
         </div>
         <div class="buttons">
             <div class="buttonleft">
