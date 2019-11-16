@@ -67,7 +67,7 @@
                             <a th:href="@{/logout}" class="nav-link" th:text="#{link.logout}">Log out</a>
                         </li>
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <div class="nav-link" th:text="#{hello.user}+${@userUtils.getUserByUserName().firstName}+'!'">Log in</div>
+                            <div class="nav-link" th:text="#{hello.user}+${@userUtils.getUserByUserName().firstName}+'!'">Hello!</div>
                         </li>
                     </ul>
 

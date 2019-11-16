@@ -1,6 +1,5 @@
 package mikolo.ecommerceshop.validators;
 
-
 import mikolo.ecommerceshop.dto.AddressDto;
 import mikolo.ecommerceshop.entity.User;
 import mikolo.ecommerceshop.utils.Consts;
