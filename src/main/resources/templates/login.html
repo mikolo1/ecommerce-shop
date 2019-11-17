@@ -33,7 +33,7 @@
         </div>
         <div class="clear"></div>
     </form>
-    <div class = "error" th:if="${#httpServletRequest.getParameter('error') == 'true'}" th:with="errorMsg=#{error.logging}">
+    <div class = "error" th:if="${param.error}" th:with="errorMsg=#{error.logging}">
         <p class="errorMsg"><span th:text="${errorMsg}"></span></p>
     </div>
 </div>
